@@ -4180,7 +4180,7 @@ ul {
         Adaptive Hashing Encryption
       </h1>
       <p style="margin: 0 0 24px; font-size: clamp(15px, 2.2vw, 22px); color: #c9efe6;"  >
-        Website under construction.
+        Where data becomes invincible — ultra-fast, secure, and scalable encryption for the quantum age.
       </p>
 
       <!-- CTAs -->
@@ -5245,6 +5245,19 @@ worldBtn.addEventListener('click', () => {
   overflow: hidden;
   z-index: 0;
 }
+
+#ai-chatbox {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#ai-chatbox.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#ai-chatbox.hide {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 
 .mini-news-card figure.news-figure img {
   width: 100%;
@@ -7617,6 +7630,112 @@ document.getElementById('quantum-ahe-encrypt-btn').addEventListener('click', qua
 document.getElementById('quantum-ahe-decrypt-btn').addEventListener('click', quantumDecryptAHE);
 </script>
 
+<style>
+  .vry-parent {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.vry-aside {
+  flex: 1;
+  min-width: 220px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: #fff;
+}
+
+.vry-aside h4 {
+  margin-bottom: 1rem;
+}
+
+.vry-aside ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.vry-cards-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  flex: 3;
+}
+
+.vry-card {
+  flex: 1 1 200px;
+  perspective: 1000px;
+  position: relative;
+}
+
+.vry-card .vry-content {
+  padding: 60px 25px 25px 25px;
+  background: rgba(30,30,30,0.5);
+  border: 2px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.5s ease-in-out;
+}
+
+.vry-card .vry-title {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #fff;
+  display: block;
+}
+
+.vry-card .vry-text {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #ddd;
+}
+
+.vry-card .vry-see {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #8ed500;
+  cursor: pointer;
+}
+
+.vry-card .vry-date {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #8ed500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vry-card .vry-date span {
+  display: block;
+  text-align: center;
+  color: #8ed500;
+}
+
+.vry-card:hover .vry-content {
+  transform: rotate3d(0.5, 1, 0, 20deg);
+  background: rgba(30,30,30,0.7);
+}
+
+/* Unique sizes & tilt for each card */
+.vry-card1 { transform: rotate(1deg) scale(1.05); }
+.vry-card2 { transform: rotate(-1deg) scale(1.1); }
+.vry-card3 { transform: rotate(2deg) scale(1.0); }
+.vry-card4 { transform: rotate(-2deg) scale(1.05); }
+.vry-card5 { transform: rotate(0deg) scale(1.1); }
+
+
+</style>
+
 <div class="vry-parent">
   <aside class="vry-aside">
     <h4>Threats Prevented by AHE</h4>
@@ -7808,38 +7927,315 @@ document.getElementById('quantum-ahe-decrypt-btn').addEventListener('click', qua
 <section class="team-section">
   <div class="team-card">
     <img src="https://media.licdn.com/dms/image/v2/D4E03AQH0VlO14GPHBg/profile-displayphoto-shrink_200_200/B4EZcmlElnG4Ac-/0/1748698943552?e=1762387200&v=beta&t=C8kh9hcvzK-IyRwp1jobtj6plcsBrTwE3HWEeFoNnKE" alt="Profile 1" class="profile-pic">
-    <h3>Thabang Tony Ngoepe</h3>
-    <p>Quantum Systems Architect</p>
+    <h3>Tony Ngoepe</h3>
+    <p>Lead Developer/Quantum Architect</p>
+    <div class="team-social-block">
+<a href="https://github.com/hak3du" target="_blank" rel="noopener noreferrer">
+  <button class="social-btn social-github">
+    <span class="social-icon-wrap">
+      <svg viewBox="0 0 496 512" height="1.6em" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 
+          0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 
+          2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 
+          2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 
+          2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 
+          8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 
+          239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 
+          0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 
+          0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 
+          38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 
+          16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 
+          0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 
+          2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 
+          41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 
+          0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 
+          2.6 67.9 16 17.7 25.8 31.5 25.8 
+          58.9 0 96.5-58.9 104.2-114.8 
+          110.5 9.2 7.9 17 22.9 17 
+          46.4 0 33.7-.3 75.4-.3 
+          83.6 0 6.5 4.6 14.4 
+          17.3 12.1C428.2 457.8 496 
+          362.9 496 252 496 113.3 
+          383.5 8 244.8 8z"/>
+      </svg>
+    </span>
+    <span class="social-bg"></span>
+  </button>
+</a>
+
+
+
+<button class="social-btn social-whatsapp">
+  <span class="social-icon-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="1.6em" fill="white">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  </span>
+  <span class="social-bg"></span>
+</button>
+
+
+<button class="social-btn social-linkedin">
+  <span class="social-icon-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="1.6em" fill="white">
+      <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/>
+    </svg>
+  </span>
+  <span class="social-bg"></span>
+</button>
+
+
+<button class="social-btn social-email">
+  <span class="social-icon-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1.6em" fill="white">
+      <path d="M502.3 190.8 327.4 338.6c-15.9 13.5-39.3 13.5-55.2 0L9.7 190.8C3.9 186.1 0 178.9 0 171.1V400c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V171.1c0 7.8-3.9 15-9.7 19.7zM464 80H48C21.5 80 0 101.5 0 128v16.2c0 7.1 3.2 13.9 8.7 18.4l224 190.1c8.5 7.2 20.9 7.2 29.4 0l224-190.1c5.5-4.5 8.7-11.3 8.7-18.4V128c0-26.5-21.5-48-48-48z"/>
+    </svg>
+  </span>
+  <span class="social-bg"></span>
+</button>
+
+
+</div>
+<style>
+  /* 🎯 Modular Social Info Styling — Customized from vinodjangid07 */
+
+.team-social-block {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px 25px;
+  border-radius: 14px;
+  margin-top: 10px;
+}
+
+.social-btn {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social-icon-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(156, 156, 156, 0.466);
+  z-index: 2;
+}
+
+.social-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 10px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-size: 0px;
+}
+
+/* 🎨 Platform Colors */
+.social-github .social-bg {
+  background: #181818;
+}
+.social-linkedin .social-bg {
+  background: #0077b5;
+}
+.social-whatsapp .social-bg {
+  background: #075e54;
+}
+.social-discord .social-bg {
+  background: #7289da;
+}
+
+/* 🧠 Hover Effects */
+.social-btn:hover .social-bg {
+  transform: scale(1.5);
+  font-size: 20px;
+  color: white;
+}
+
+.social-btn:hover .social-icon-wrap {
+  border: 1px solid rgba(216, 216, 216, 0.466);
+  background-color: rgba(209, 209, 209, 0.466);
+  backdrop-filter: blur(4px);
+}
+
+</style>
   </div>
   <div class="team-card">
     <img src="https://media.licdn.com/dms/image/v2/C4E03AQEHt0uz1QKKFg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517988853390?e=1762387200&v=beta&t=qVT5qpYylDjUG0NB1UwcCyOQcCUHiO2R6d5Jdt_8N4M" alt="Profile 2" class="profile-pic">
     <h3>Brynn Huxtable</h3>
-    <p>Multidimensional Project Lead</p>
+    <p>Project Lead</p>
+    <div class="team-social-block">
+<button class="social-btn social-github">
+  <span class="social-icon-wrap">
+    <svg viewBox="0 0 496 512" height="1.6em" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 
+        0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 
+        2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 
+        2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 
+        2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 
+        8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 
+        239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 
+        0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 
+        0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 
+        38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 
+        16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 
+        0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 
+        2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 
+        41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 
+        0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 
+        2.6 67.9 16 17.7 25.8 31.5 25.8 
+        58.9 0 96.5-58.9 104.2-114.8 
+        110.5 9.2 7.9 17 22.9 17 
+        46.4 0 33.7-.3 75.4-.3 
+        83.6 0 6.5 4.6 14.4 
+        17.3 12.1C428.2 457.8 496 
+        362.9 496 252 496 113.3 
+        383.5 8 244.8 8z"/>
+    </svg>
+  </span>
+  <span class="social-bg"></span>
+</button>
+
+
+<button class="social-btn social-whatsapp">
+  <span class="social-icon-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="1.6em" fill="white">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  </span>
+  <span class="social-bg"></span>
+</button>
+
+
+<button class="social-btn social-linkedin">
+  <span class="social-icon-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="1.6em" fill="white">
+      <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/>
+    </svg>
+  </span>
+  <span class="social-bg"></span>
+</button>
+
+
+<button class="social-btn social-email">
+  <span class="social-icon-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1.6em" fill="white">
+      <path d="M502.3 190.8 327.4 338.6c-15.9 13.5-39.3 13.5-55.2 0L9.7 190.8C3.9 186.1 0 178.9 0 171.1V400c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V171.1c0 7.8-3.9 15-9.7 19.7zM464 80H48C21.5 80 0 101.5 0 128v16.2c0 7.1 3.2 13.9 8.7 18.4l224 190.1c8.5 7.2 20.9 7.2 29.4 0l224-190.1c5.5-4.5 8.7-11.3 8.7-18.4V128c0-26.5-21.5-48-48-48z"/>
+    </svg>
+  </span>
+  <span class="social-bg"></span>
+</button>
+
+
+</div>
   </div>
   <div class="team-card">
     <img src="https://media.licdn.com/dms/image/v2/C4D03AQH52-0fAHZNTQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1568027818140?e=1762387200&v=beta&t=FvNiPJVXD-BQMsYxtAkNwDon0QpEp7p8xrLVnTybDfM" alt="Profile 3" class="profile-pic">
     <h3>Antonio Fuček</h3>
-    <p>Quantum Research Lead</p>
+    <p>Research Lead/ Client Acquisition Expert</p>
+    <div class="team-social-block">
+<button class="social-btn social-github">
+  <span class="social-icon-wrap">
+    <svg viewBox="0 0 496 512" height="1.6em" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 
+        0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 
+        2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 
+        2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 
+        2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 
+        8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 
+        239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 
+        0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 
+        0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 
+        38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 
+        16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 
+        0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 
+        2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 
+        41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 
+        0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 
+        2.6 67.9 16 17.7 25.8 31.5 25.8 
+        58.9 0 96.5-58.9 104.2-114.8 
+        110.5 9.2 7.9 17 22.9 17 
+        46.4 0 33.7-.3 75.4-.3 
+        83.6 0 6.5 4.6 14.4 
+        17.3 12.1C428.2 457.8 496 
+        362.9 496 252 496 113.3 
+        383.5 8 244.8 8z"/>
+    </svg>
+  </span>
+  <span class="social-bg"></span>
+</button>
+
+
+<button class="social-btn social-whatsapp">
+  <span class="social-icon-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="1.6em" fill="white">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  </span>
+  <span class="social-bg"></span>
+</button>
+
+
+<button class="social-btn social-linkedin">
+  <span class="social-icon-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="1.6em" fill="white">
+      <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/>
+    </svg>
+  </span>
+  <span class="social-bg"></span>
+</button>
+
+
+<button class="social-btn social-email">
+  <span class="social-icon-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1.6em" fill="white">
+      <path d="M502.3 190.8 327.4 338.6c-15.9 13.5-39.3 13.5-55.2 0L9.7 190.8C3.9 186.1 0 178.9 0 171.1V400c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V171.1c0 7.8-3.9 15-9.7 19.7zM464 80H48C21.5 80 0 101.5 0 128v16.2c0 7.1 3.2 13.9 8.7 18.4l224 190.1c8.5 7.2 20.9 7.2 29.4 0l224-190.1c5.5-4.5 8.7-11.3 8.7-18.4V128c0-26.5-21.5-48-48-48z"/>
+    </svg>
+  </span>
+  <span class="social-bg"></span>
+</button>
+
+
+</div>
   </div>
 </section>
 
 <style>
   .team-section {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   height: 100vh;
   display: flex;
   justify-content: center;
   gap: 40px;
   padding: 60px 20px;
   backdrop-filter: none;
-  flex-wrap: wrap; /* optional for responsiveness */
+  flex-wrap: wrap;
   background: transparent;
 }
 
 .team-card {
-    
-  width: 300px;
-  height: 420px; /* increased height for breathing room */
+  width: 404px;
+  height: 520px; /* 🔒 Fixed uniform height */
   padding: 30px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
@@ -7851,8 +8247,8 @@ document.getElementById('quantum-ahe-decrypt-btn').addEventListener('click', qua
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
+  justify-content: flex-start;
+  overflow: visible;
 }
 
 .profile-pic {
@@ -7866,39 +8262,98 @@ document.getElementById('quantum-ahe-decrypt-btn').addEventListener('click', qua
   box-shadow: 0 0 10px #0ff8;
   flex-shrink: 0;
 }
+
+/* 🎯 Font Styling for Name and Role */
+.team-card h3 {
+  font-family: 'Bebas Neue', sans-serif; /* Bold, cinematic name */
+  font-size: 1.8em;
+  margin: 20px 0 10px;
+  letter-spacing: 1px;
+}
+
+.team-card p {
+  font-family: 'Rajdhani', sans-serif; /* Sleek, modern role */
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: #ccc;
+  letter-spacing: 0.5px;
+}
+
 </style>
 
 
 
+<style>
+  #login-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  #login-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .login-box {
+    background: rgba(255,255,255,0.95);
+    padding: 40px 60px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    max-width: 400px;
+  }
+
+  .marker-img {
+    max-width: 200px;
+    width: 100%;
+    display: block;
+    margin: 0 auto 20px auto;
+  }
+
+  .login-box h2 {
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+  }
+
+  #status-text {
+    margin-top: 20px;
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+
+<!-- ✅ Overlay HTML -->
 
 
 <!-- Floating Question Mark -->
-<div id="ai-trigger" onclick="toggleChat()" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 48px;
-  height: 48px;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(8px);
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 9999;
-">
-  <span style="font-size: 24px; color: #fff;">?</span>
-</div>
+<!-- Floating Trigger -->
 
-<!-- Chatbox Container -->
+
+<!-- Botpress Chatbox Container -->
 <div id="ai-chatbox" style="
   position: fixed;
   bottom: 80px;
   right: 20px;
-  width: 320px;
-  max-height: 400px;
+  width: 360px;
+  height: 500px;
   background: rgba(255,255,255,0.9);
   backdrop-filter: blur(12px);
   border-radius: 12px;
@@ -7908,20 +8363,137 @@ document.getElementById('quantum-ahe-decrypt-btn').addEventListener('click', qua
   overflow: hidden;
   z-index: 9999;
 ">
-  <div id="chat-log" style="padding: 16px; overflow-y: auto; flex: 1; font-family: sans-serif; font-size: 0.9rem;"></div>
-  <input id="chat-input" type="text" placeholder="Ask me anything…" style="
-    border: none;
-    padding: 12px 16px;
-    font-size: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-    border-top: 1px solid #ccc;
-    outline: none;
-  " />
+  <!-- Botpress will inject the chat here -->
 </div>
 
+<!-- Botpress Scripts -->
+<script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/10/21/04/20251021043719-NMXYPZZL.js" defer></script>
+
+<!-- Toggle Logic -->
+<script>
+function toggleChat() {
+  const chatbox = document.getElementById("ai-chatbox");
+  const isVisible = chatbox.style.display === "flex";
+  chatbox.style.display = isVisible ? "none" : "flex";
+}
+</script>
 
 
+<div id="login-overlay">
+  <div class="login-box">
+    <img src="C:\Users\Administrator\Downloads\site\assets\marker.png" alt="AR Marker" class="marker-img" />
+    <h2>Welcome! Scan the AR Marker to Login</h2>
+    <p id="status-text">Initializing…</p>
+  </div>
+</div>
+
+<!-- ✅ Overlay Script -->
+<script>
+  const loginOverlay = document.getElementById("login-overlay");
+  const statusText = document.getElementById("status-text");
+  const BACKEND = "https://hours-hide-down-appreciation.trycloudflare.com";
+
+  let pollingActive = true;
+
+  function updateStatus(message, color = "#555") {
+    statusText.textContent = message;
+    statusText.style.color = color;
+    console.log("[Overlay]", message);
+  }
+
+  function hideOverlay() {
+    loginOverlay.classList.add("hidden");
+    setTimeout(() => {
+      loginOverlay.style.display = "none";
+    }, 600);
+  }
+
+  async function verifyUserToken(token) {
+    updateStatus("Verifying token…");
+    console.log("[Overlay] Verifying token:", token);
+    try {
+      const res = await fetch(`${BACKEND}/verify-token`, {
+        method: "POST",
+        headers: { "Authorization": "Bearer " + token }
+      });
+      const data = await res.json();
+
+      if (res.ok && data.username) {
+        updateStatus(`Welcome, ${data.username}`, "green");
+        hideOverlay();
+        console.log("[Overlay] Login verified for:", data.username);
+        pollingActive = false; // ✅ Stop polling
+        await fetch(`${BACKEND}/clear-token`, { method: "POST" }); // Optional cleanup
+        return true;
+      } else {
+        updateStatus("Invalid token", "red");
+        console.warn("[Overlay] Invalid token");
+        return false;
+      }
+    } catch (err) {
+      updateStatus("Token verification failed", "red");
+      console.error("[Overlay] Token verification failed:", err);
+      return false;
+    }
+  }
+
+  async function pollForToken() {
+    if (!pollingActive) return;
+
+    try {
+      console.log("[Overlay] Polling /latest-token...");
+      const res = await fetch(`${BACKEND}/latest-token`);
+      const data = await res.json();
+      const token = data.token;
+
+      if (token && !localStorage.getItem("userToken")) {
+        console.log("[Overlay] Token detected from AR scene");
+        localStorage.setItem("userToken", token);
+        const valid = await verifyUserToken(token);
+        if (!valid) {
+          updateStatus("Login failed. Try again.", "red");
+          localStorage.removeItem("userToken");
+        }
+      }
+    } catch (err) {
+      console.error("[Overlay] Polling error:", err);
+    }
+  }
+
+  localStorage.removeItem("userToken");
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    console.log("[Overlay] Script loaded");
+    const token = localStorage.getItem("userToken");
+    if (token) {
+      updateStatus("Checking saved login…");
+      const valid = await verifyUserToken(token);
+      if (!valid) {
+        updateStatus("Session expired. Please log in again.", "orange");
+        localStorage.removeItem("userToken");
+      }
+    } else {
+      updateStatus("Scan the marker to begin.");
+    }
+
+    setInterval(pollForToken, 3000);
+  });
+
+  window.addEventListener("message", async (event) => {
+    console.log("[Overlay] Message received:", event.data);
+    if (event.data?.type === "AR_LOGIN_SUCCESS" && event.data.token) {
+      updateStatus("Token received from AR scene");
+      const token = event.data.token;
+      localStorage.setItem("userToken", token);
+      const valid = await verifyUserToken(token);
+      if (!valid) {
+        updateStatus("Login failed. Try again.", "red");
+        localStorage.removeItem("userToken");
+      }
+    }
+  });
+</script>  
 
 
 <footer class="site-footer">
@@ -7951,7 +8523,14 @@ document.getElementById('quantum-ahe-decrypt-btn').addEventListener('click', qua
   });
 });
 
-
+function toggleChat() {
+  const chatbox = document.getElementById("ai-chatbox");
+  if (chatbox.style.display === "none" || chatbox.style.display === "") {
+    chatbox.style.display = "flex";
+  } else {
+    chatbox.style.display = "none";
+  }
+}
 
 
 document.querySelectorAll('.fancy-rare, .concept-btn').forEach(btn => {
