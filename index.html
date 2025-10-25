@@ -4136,7 +4136,7 @@ ul {
     <button class="nav-deck-button button">
       <span class="button_lg">
         <span class="button_sl"></span>
-        <span class="button_text">Projects</span>
+        <span class="button_text" onclick="location.href='#usecases'">Use cases</span>
       </span>
     </button>
     <button class="nav-deck-button button">
@@ -4473,7 +4473,130 @@ ul {
           </article>
         </div>
 
+<div id="login-overlay">
+  <div class="login-box">
+    <img src="marker1.png" alt="AR Marker" class="marker-img1" />
+    <h2>Welcome to the new way of Security</h2>
+    <p id="status-text"> Initializing...</p>
 
+
+    </p>
+  </div>
+</div>
+<style>
+  .marker-img1 {
+    max-width: 110%;
+  width: 50vw;   /* adjust size */
+  height:  auto; 
+  opacity: 0.7;  /* optional style */
+}
+</style>
+<!-- ✅ Overlay Script -->
+<script>
+  const loginOverlay = document.getElementById("login-overlay");
+  const statusText = document.getElementById("status-text");
+  const BACKEND = "https://hands-running-represent-memphis.trycloudflare.com";
+
+  let pollingActive = true;
+
+  function updateStatus(message, color = "#555") {
+    statusText.textContent = message;
+    statusText.style.color = color;
+    console.log("[Overlay]", message);
+  }
+
+  function hideOverlay() {
+    loginOverlay.classList.add("hidden");
+    setTimeout(() => {
+      loginOverlay.style.display = "none";
+    }, 600);
+  }
+
+  async function verifyUserToken(token) {
+    updateStatus("Verifying token…");
+    console.log("[Overlay] Verifying token:", token);
+    try {
+      const res = await fetch(`${BACKEND}/verify-token`, {
+        method: "POST",
+        headers: { "Authorization": "Bearer " + token }
+      });
+      const data = await res.json();
+
+      if (res.ok && data.username) {
+        updateStatus(`Welcome, ${data.username}`, "green");
+        hideOverlay();
+        console.log("[Overlay] Login verified for:", data.username);
+        pollingActive = false; // ✅ Stop polling
+        await fetch(`${BACKEND}/clear-token`, { method: "POST" }); // Optional cleanup
+        return true;
+      } else {
+        updateStatus("Invalid token", "red");
+        console.warn("[Overlay] Invalid token");
+        return false;
+      }
+    } catch (err) {
+      updateStatus("Token verification failed", "red");
+      console.error("[Overlay] Token verification failed:", err);
+      return false;
+    }
+  }
+
+  async function pollForToken() {
+    if (!pollingActive) return;
+
+    try {
+      console.log("[Overlay] Polling /latest-token...");
+      const res = await fetch(`${BACKEND}/latest-token`);
+      const data = await res.json();
+      const token = data.token;
+
+      if (token && !localStorage.getItem("userToken")) {
+        console.log("[Overlay] Token detected from AR scene");
+        localStorage.setItem("userToken", token);
+        const valid = await verifyUserToken(token);
+        if (!valid) {
+          updateStatus("Login failed. Try again.", "red");
+          localStorage.removeItem("userToken");
+        }
+      }
+    } catch (err) {
+      console.error("[Overlay] Polling error:", err);
+    }
+  }
+
+  localStorage.removeItem("userToken");
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    console.log("[Overlay] Script loaded");
+    const token = localStorage.getItem("userToken");
+    if (token) {
+      updateStatus("Checking saved login…");
+      const valid = await verifyUserToken(token);
+      if (!valid) {
+        updateStatus("Session expired. Please log in again.", "orange");
+        localStorage.removeItem("userToken");
+      }
+    } else {
+      updateStatus("Scan the marker to begin.");
+    }
+
+    setInterval(pollForToken, 3000);
+  });
+
+  window.addEventListener("message", async (event) => {
+    console.log("[Overlay] Message received:", event.data);
+    if (event.data?.type === "AR_LOGIN_SUCCESS" && event.data.token) {
+      updateStatus("Token received from AR scene");
+      const token = event.data.token;
+      localStorage.setItem("userToken", token);
+      const valid = await verifyUserToken(token);
+      if (!valid) {
+        updateStatus("Login failed. Try again.", "red");
+        localStorage.removeItem("userToken");
+      }
+    }
+  });
+</script> 
 
 <section class="zk-gallery-section" aria-labelledby="zk-gallery-title">
   <div class="zk-gallery-inner">
@@ -6104,6 +6227,8 @@ body {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       margin-top: 0;
       color: #95b6a9;
+      background-color: #0097a7;
+      opacity: 0.4;
     }
 
     @media (max-width: 900px) {
@@ -6162,7 +6287,7 @@ body {
     </aside>
   </div>
 <audio id="introAudio" preload="auto">
-  <source src="C:/Users/Administrator/Downloads/ElevenLabs_2025-10-07T10_35_41_Alice_pre_sp88_s50_sb75_se0_b_m2.mp3" type="audio/mpeg">
+  <source src="C:\Users\Administrator\Downloads\IntroEl.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 <script>
@@ -7019,7 +7144,7 @@ const fadeIn = (el, html) => {
 
 
 
-<section class="xyrv-section">
+<section class="xyrv-section" id="usecases">
   <h2 class="vynq-title">Adaptive Hashing Encryption USE CASES</h2> 
 </section>
 
@@ -8368,154 +8493,14 @@ document.getElementById('quantum-ahe-decrypt-btn').addEventListener('click', qua
 <!-- Floating Trigger -->
 
 
-<!-- Botpress Chatbox Container -->
-<div id="ai-chatbox" style="
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 360px;
-  height: 500px;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(12px);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  z-index: 9999;
-">
-  <!-- Botpress will inject the chat here -->
-</div>
-
-<!-- Botpress Scripts -->
-<script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/10/21/04/20251021043719-NMXYPZZL.js" defer></script>
-
-<!-- Toggle Logic -->
-<script>
-function toggleChat() {
-  const chatbox = document.getElementById("ai-chatbox");
-  const isVisible = chatbox.style.display === "flex";
-  chatbox.style.display = isVisible ? "none" : "flex";
-}
-</script>
 
 
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/10/25/10/20251025100921-XYXSBLUK.js" defer></script>
+    
 
-<div id="login-overlay">
-  <div class="login-box">
-    <img src="marker1.png" alt="AR Marker" class="marker-img" />
-    <h2>Welcome! Scan the AR Marker to Login</h2>
-    <p id="status-text">Welcome to the new way of Security</p>
-  </div>
-</div>
 
-<!-- ✅ Overlay Script -->
-<script>
-  const loginOverlay = document.getElementById("login-overlay");
-  const statusText = document.getElementById("status-text");
-  const BACKEND = "https://screenshot-eventually-worldwide-enjoyed.trycloudflare.com";
-
-  let pollingActive = true;
-
-  function updateStatus(message, color = "#555") {
-    statusText.textContent = message;
-    statusText.style.color = color;
-    console.log("[Overlay]", message);
-  }
-
-  function hideOverlay() {
-    loginOverlay.classList.add("hidden");
-    setTimeout(() => {
-      loginOverlay.style.display = "none";
-    }, 600);
-  }
-
-  async function verifyUserToken(token) {
-    updateStatus("Verifying token…");
-    console.log("[Overlay] Verifying token:", token);
-    try {
-      const res = await fetch(`${BACKEND}/verify-token`, {
-        method: "POST",
-        headers: { "Authorization": "Bearer " + token }
-      });
-      const data = await res.json();
-
-      if (res.ok && data.username) {
-        updateStatus(`Welcome, ${data.username}`, "green");
-        hideOverlay();
-        console.log("[Overlay] Login verified for:", data.username);
-        pollingActive = false; // ✅ Stop polling
-        await fetch(`${BACKEND}/clear-token`, { method: "POST" }); // Optional cleanup
-        return true;
-      } else {
-        updateStatus("Invalid token", "red");
-        console.warn("[Overlay] Invalid token");
-        return false;
-      }
-    } catch (err) {
-      updateStatus("Token verification failed", "red");
-      console.error("[Overlay] Token verification failed:", err);
-      return false;
-    }
-  }
-
-  async function pollForToken() {
-    if (!pollingActive) return;
-
-    try {
-      console.log("[Overlay] Polling /latest-token...");
-      const res = await fetch(`${BACKEND}/latest-token`);
-      const data = await res.json();
-      const token = data.token;
-
-      if (token && !localStorage.getItem("userToken")) {
-        console.log("[Overlay] Token detected from AR scene");
-        localStorage.setItem("userToken", token);
-        const valid = await verifyUserToken(token);
-        if (!valid) {
-          updateStatus("Login failed. Try again.", "red");
-          localStorage.removeItem("userToken");
-        }
-      }
-    } catch (err) {
-      console.error("[Overlay] Polling error:", err);
-    }
-  }
-
-  localStorage.removeItem("userToken");
-
-  document.addEventListener("DOMContentLoaded", async () => {
-    console.log("[Overlay] Script loaded");
-    const token = localStorage.getItem("userToken");
-    if (token) {
-      updateStatus("Checking saved login…");
-      const valid = await verifyUserToken(token);
-      if (!valid) {
-        updateStatus("Session expired. Please log in again.", "orange");
-        localStorage.removeItem("userToken");
-      }
-    } else {
-      updateStatus("Scan the marker to begin.");
-    }
-
-    setInterval(pollForToken, 3000);
-  });
-
-  window.addEventListener("message", async (event) => {
-    console.log("[Overlay] Message received:", event.data);
-    if (event.data?.type === "AR_LOGIN_SUCCESS" && event.data.token) {
-      updateStatus("Token received from AR scene");
-      const token = event.data.token;
-      localStorage.setItem("userToken", token);
-      const valid = await verifyUserToken(token);
-      if (!valid) {
-        updateStatus("Login failed. Try again.", "red");
-        localStorage.removeItem("userToken");
-      }
-    }
-  });
-</script>  
+ 
 
 <footer class="site-footer">
   <div class="ticker-label">Cybersecurity Intel Feed</div>
